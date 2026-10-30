@@ -110,7 +110,7 @@ rooms/{roomId}            mode, puzzleId, players[], cells{}, status, winner
 | סעיף | מימוש |
 |---|---|
 | 1–5 | אנדרואיד; טיפול בכשל AI ורשת; אלגוריתם השיבוץ; Fragments; `NetworkReceiver`; הרשאת התראות |
-| 6 (≥2) | GenAI (12), WorkManager (1), Room עם יחסים (4), RecyclerView (9), MVVM מלא (11) — להיסטוריה, למובילים ולחדרים |
+| 6 (≥2) | GenAI (12), WorkManager (1), Room עם יחסים (4), RecyclerView (9) להיסטוריה, למובילים ולחדרים, MVVM מלא (11) |
 | 7 | Firestore בקריאה, כתיבה וסנכרון בזמן אמת + Room |
 | 8, אפשרות 1 | שלושה מסעיף 9 ↓ |
 | 9 | ‏View מותאם — `ArrowGridView`, כולל ציור חיצים, טקסט במשבצות וזום (3); רב-משתתפים עם ניהול קונפליקטים — `CoopMode` (15); `AlarmManager` + Notification — תזכורת יומית (2); API בצד שרת — Cloud Functions (10) |
