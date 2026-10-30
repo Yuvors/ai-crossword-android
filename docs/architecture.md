@@ -110,7 +110,7 @@ rooms/{roomId}            mode, puzzleId, players[], cells{}, status, winner
 | סעיף | מימוש |
 |---|---|
 | 1–5 | אנדרואיד; טיפול בכשל AI ורשת; אלגוריתם השיבוץ; Fragments; `NetworkReceiver`; הרשאת התראות |
-| 6 (≥2) | GenAI (12), WorkManager (1), Room עם יחסים (4), RecyclerView (9) — להיסטוריה, למובילים ולחדרים |
+| 6 (≥2) | GenAI (12), WorkManager (1), Room עם יחסים (4), RecyclerView (9), MVVM מלא (11) — להיסטוריה, למובילים ולחדרים |
 | 7 | Firestore בקריאה, כתיבה וסנכרון בזמן אמת + Room |
 | 8, אפשרות 1 | שלושה מסעיף 9 ↓ |
 | 9 | ‏View מותאם — `ArrowGridView`, כולל ציור חיצים, טקסט במשבצות וזום (3); רב-משתתפים עם ניהול קונפליקטים — `CoopMode` (15); `AlarmManager` + Notification — תזכורת יומית (2); API בצד שרת — Cloud Functions (10) |
@@ -123,8 +123,8 @@ rooms/{roomId}            mode, puzzleId, players[], cells{}, status, winner
 סגורות:
 - אלגוריתם השיבוץ — באפליקציה, ב-Java.
 - התחברות — Firebase Auth, אימייל וסיסמה.
+- MVVM מלא — ViewModel לכל מסך (ראו `docs/learning/01-mvvm.md`).
 
 פתוחות:
 1. ספק ה-AI — נדחה עד שיהיה ידוע התקציב.
-2. MVVM מלא (נושא 11 בסעיף 6) או רק ViewModel במסכים המרכזיים.
-3. האם לתמוך בחיצים "שבורים" כבר בגרסה הראשונה.
+2. האם לתמוך בחיצים "שבורים" כבר בגרסה הראשונה.
