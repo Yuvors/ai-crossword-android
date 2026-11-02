@@ -4,6 +4,7 @@
 - מכוון הדרישות של משרד החינוך: `docs/smartphonesProject-5.pdf` — לקרוא לפני כל החלטת תכנון.
 - סיכום טקסטואלי שלו: `docs/requirements-summary.md`.
 - ארכיטקטורה (טיוטה): `docs/architecture.md`.
+- מבנה קבצים (סקיצה): `docs/project-structure.md`.
 - חומרי לימוד למשתמש: `docs/learning/` (קובץ ממוספר לכל נושא).
 
 ## החלטות שהתקבלו
