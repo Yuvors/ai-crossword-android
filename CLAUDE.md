@@ -2,7 +2,7 @@
 
 ## Next Steps
 1. `ArrowGridGenerator` (כולל unit tests), יחד עם שיעור ב-`docs/learning/`. לפני כן כנראה צריך את מחלקות ה-model שהוא משתמש בהן (`Cell`, `Arrow`, `Word`, `Grid` וכו'). לא להתחיל לכתוב קוד לפני אישור המשתמש. (`HebrewNormalizer` הושלם.)
-2. קבצי Gradle ו-`AndroidManifest.xml` — עדיין לא נוצרו, בכוונה. לא ליצור בלי לשאול את המשתמש.
+2. כשמוסיפים ל-Manifest רכיב (Activity, Receiver, הרשאה) או ספרייה ל-Gradle — לעשות זאת רק ביחד עם הקובץ שצריך אותם, ולהסביר.
 3. ליישב אי-התאמות קטנות במסמכים:
    - בשיעור 01 מופיע `GameViewModelFactory`, ובמבנה יש רק `ViewModelFactory` אחד.
    - `RegisterActivity` מופיע ב-`project-structure.md` אבל לא בטבלת המסכים ב-`architecture.md`.
@@ -34,6 +34,11 @@
 - MVVM מלא בכל המסכים: ViewModel לכל מסך, LiveData, Repository כנקודת גישה יחידה לנתונים.
 - כל קוד שנוצר בעזרת AI חייב להיות מסומן בתיעוד (דרישת המכוון).
 - `HebrewNormalizer`: הבדיקה (`isValidAnswer`) נפרדת מההמרה (`normalize`). הסיבה: `normalize` מוחקת בשקט כל תו לא מוכר, ובלי בדיקה נפרדת תשובה פגומה מה-AI ("שלום1") הייתה נכנסת לגריד. גרש, מקף ורווח מותרים ונמחקים; ספרות ואותיות לועזיות פוסלות. אורך מינימלי לתשובה: 2.
+- Gradle: ‏Kotlin DSL וקטלוג גרסאות (`libs.versions.toml`), Gradle 9.3.1 ו-AGP 8.13.0. הסיבה: זו התבנית הנוכחית של Android Studio, ואותן גרסאות כבר עובדות במחשב של המשתמש (SchoolQuest, UpDown).
+- `minSdk` 28 (Android 9), `compileSdk`/`targetSdk` 36, Java 11. הסיבה: כמו בפרויקטים הקודמים, ומכסה כמעט כל טלפון בבחינה.
+- כרגע רק ספריות בסיס (AppCompat, Material, Lifecycle, JUnit). Room, WorkManager ו-Firebase ייכנסו כל אחת עם השיעור שלה. הסיבה: שהמשתמש יכיר כל שורה בקובץ, וגם כי Firebase צריך `google-services.json`.
+- Manifest מינימלי (רק `<application>` עם `supportsRtl`). כל רכיב והרשאה ייכנסו יחד עם הקובץ שלהם.
+- קבצי ה-XML שהיו ריקים ב-`res/` קיבלו מעטפת תקינה מינימלית (`<resources />`, `<menu />`, `FrameLayout` ריק). הסיבה: קובץ XML ריק שובר את הבנייה.
 - בדיקות יחידה ב-JUnit 4, ברירת המחדל של אנדרואיד (`junit:junit:4.13.2`) — כדי שה-template הרגיל של Android Studio יעבוד בלי הגדרות נוספות.
 
 ## דרך עבודה
@@ -45,3 +50,4 @@
 - **2026-10-30** (ענן): טיוטת ארכיטקטורה ראשונה. מעבר לתשחץ. הוחלט על Firebase Auth ועל הרצת אלגוריתם השיבוץ באפליקציה. MVVM מלא ושיעור 01. חיצים שבורים נכללים כבר בגרסה הראשונה.
 - **2026-11-02** (ענן): סקיצת מבנה הקבצים. כל הקבצים והתיקיות נוצרו ריקים.
 - **2026-11-03** (מחשב מקומי): ה-repository שוכפל ל-`C:\Users\yuval\AndroidStudioProjects\ai-crossword-android`. נבדק שכל הקבצים מהסקיצה קיימים וריקים. נוספו ל-CLAUDE.md הסעיפים Next Steps, Key Decisions ו-Session Log. נכתבו `HebrewNormalizer`, `HebrewNormalizerTest` (10 בדיקות) ושיעור 02. בלי Gradle, הבדיקות הורצו ידנית עם JDK 17 המקומי (`C:\Program Files (x86)\Android\openjdk\jdk-17.0.8.101-hotspot`) ו-stub של JUnit: 10/10 עברו.
+- **2026-11-03** (המשך): הוקם Gradle (Wrapper הועתק מ-SchoolQuest), נוסף Manifest מינימלי, וקבצי ה-XML הריקים קיבלו מעטפת תקינה. `gradlew testDebugUnitTest` — 10/10 עברו; `gradlew assembleDebug` — נבנה APK. שיעור 03 על Gradle. כדי להריץ משורת הפקודה צריך `JAVA_HOME` שמצביע ל-JDK 17 (למשל `C:\Program Files (x86)\Android\openjdk\jdk-17.0.8.101-hotspot`); Android Studio מסתדר לבד.

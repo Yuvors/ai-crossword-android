@@ -133,7 +133,7 @@ public void normalize_turnsFinalLettersToRegular() {
 
 **למה זה אפשרי בלי אמולטור?** כי `HebrewNormalizer` כתובה ב-Java נקי, בלי שום מחלקה של אנדרואיד. זו בדיוק הסיבה שהפרדנו את `logic/` מ-`ui/`. בדיקות כאלה יושבות ב-`app/src/test` ורצות ישירות על המחשב, תוך שניות.
 
-> מצב נוכחי: עוד אין קבצי Gradle, ולכן Android Studio עוד לא יודע להריץ את הבדיקות. הן הורצו פעם אחת ידנית עם JDK 17, ו-10 מתוך 10 עברו. אחרי שיתווסף `build.gradle` (עם `testImplementation 'junit:junit:4.13.2'`) יהיה אפשר להריץ אותן בלחיצה ימנית → Run.
+> כדי להריץ: לחיצה ימנית על `HebrewNormalizerTest` ב-Android Studio → Run, או `gradlew testDebugUnitTest` משורת הפקודה (ראו שיעור 03). כל 10 הבדיקות עוברות.
 
 ## שאלות שבוחן עשוי לשאול
 1. **למה צריך את `HebrewNormalizer`?**

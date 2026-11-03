@@ -1,0 +1,19 @@
+# קטלוג הגרסאות: כל הספריות והגרסאות שלהן במקום אחד.
+# ב-app/build.gradle.kts פונים אליהן בשם, למשל libs.appcompat.
+
+[versions]
+agp = "8.13.0"
+appcompat = "1.7.0"
+material = "1.12.0"
+lifecycle = "2.8.7"
+junit = "4.13.2"
+
+[libraries]
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "lifecycle" }
+lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata", version.ref = "lifecycle" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }

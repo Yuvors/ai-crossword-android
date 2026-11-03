@@ -11,6 +11,12 @@ ai-crossword-android/
 ├── docs/                        מסמכים, מכוון, שיעורים
 ├── app/                         אפליקציית האנדרואיד (Java)
 ├── functions/                   Cloud Functions — מתווך מול ה-AI ואימות לפני שמירה
+├── settings.gradle.kts          שם הפרויקט, המודולים, מאגרי הספריות
+├── build.gradle.kts             הצהרה על הפלאגין של אנדרואיד
+├── gradle.properties            הגדרות Gradle (זיכרון, UTF-8, AndroidX)
+├── gradle/libs.versions.toml    קטלוג הגרסאות של כל הספריות
+├── gradlew, gradlew.bat, gradle/wrapper/   Gradle Wrapper (גרסה 9.3.1)
+├── local.properties             נתיב ה-SDK במחשב — לא נכנס ל-git
 ├── firebase.json                הגדרות פרויקט Firebase
 ├── firestore.rules              כללי אבטחה: מי רשאי לקרוא ולכתוב מה
 └── firestore.indexes.json       אינדקסים לשאילתות (size + index)
@@ -171,7 +177,9 @@ drawable/                 אייקונים
 app/src/main/AndroidManifest.xml   מסכים, receivers, הרשאות:
                                    INTERNET, ACCESS_NETWORK_STATE, POST_NOTIFICATIONS,
                                    RECEIVE_BOOT_COMPLETED; supportsRtl="true"
-app/build.gradle                   תלויות: Firebase, Room, WorkManager, Lifecycle
+                                   (כרגע מינימלי: רק <application>. כל רכיב נוסף ביחד עם הקובץ שלו)
+app/build.gradle.kts               תלויות. כרגע: AppCompat, Material, Lifecycle, JUnit.
+                                   בהמשך: Room, WorkManager, Firebase — כל אחת עם השיעור שלה
 app/google-services.json           ההגדרות של Firebase — לא נכנס ל-git
 ```
 
