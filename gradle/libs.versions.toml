@@ -1,5 +1,5 @@
-# קטלוג הגרסאות: כל הספריות והגרסאות שלהן במקום אחד.
-# ב-app/build.gradle.kts פונים אליהן בשם, למשל libs.appcompat.
+# Version catalog: all the libraries and their versions in one place.
+# app/build.gradle.kts refers to them by name, for example libs.appcompat.
 
 [versions]
 agp = "8.13.0"

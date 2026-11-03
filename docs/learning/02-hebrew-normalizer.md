@@ -1,6 +1,6 @@
 # שיעור 2: HebrewNormalizer, תווים ויוניקוד, ובדיקות יחידה
 
-> הקוד של `HebrewNormalizer` ושל הבדיקות שלו נכתב בעזרת AI (Claude). בתיעוד של המחלקות זה מסומן במפורש, כפי שהמכוון דורש.
+> הקוד של `HebrewNormalizer` ושל הבדיקות שלו נכתב בעזרת AI (Claude). זה רשום ב-`docs/ai-usage.md`, כפי שהמכוון דורש.
 
 קבצים:
 - `app/src/main/java/com/yuval/tashchetz/logic/HebrewNormalizer.java`

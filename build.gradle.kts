@@ -1,4 +1,4 @@
-// קובץ הבנייה של כל הפרויקט. כאן רק מצהירים על הפלאגין; מפעילים אותו ב-app/build.gradle.kts.
+// Top-level build file. The plugin is only declared here; it is applied in app/build.gradle.kts.
 plugins {
     alias(libs.plugins.android.application) apply false
 }

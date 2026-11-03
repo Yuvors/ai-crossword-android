@@ -7,11 +7,12 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
- * בדיקות יחידה ל-HebrewNormalizer. רצות על המחשב, בלי אמולטור.
- *
- * הקוד נכתב בעזרת AI (Claude) ומוסבר בשיעור docs/learning/02-hebrew-normalizer.md.
+ * Unit tests for HebrewNormalizer. They run on the computer, without an emulator.
  */
 public class HebrewNormalizerTest {
+
+    /** Kamatz — a niqqud mark (U+05B8), not a letter. */
+    private static final char KAMATZ = 0x05B8;
 
     @Test
     public void normalize_turnsFinalLettersToRegular() {
@@ -24,7 +25,7 @@ public class HebrewNormalizerTest {
 
     @Test
     public void normalize_keepsRegularLettersInTheMiddle() {
-        // רק סופית משתנה; "מ" באמצע המילה נשארת כמו שהיא
+        // Only final letters change; a regular "מ" in the middle of the word stays as is
         assertEquals("ממלכה", HebrewNormalizer.normalize("ממלכה"));
     }
 
@@ -40,7 +41,7 @@ public class HebrewNormalizerTest {
         assertEquals("גירפה", HebrewNormalizer.normalize("ג׳ירפה"));
         assertEquals("צהל", HebrewNormalizer.normalize("צה\"ל"));
         assertEquals("בנדוד", HebrewNormalizer.normalize("בן-דוד"));
-        assertEquals("בנדוד", HebrewNormalizer.normalize("בן־דוד")); // מקף עברי
+        assertEquals("בנדוד", HebrewNormalizer.normalize("בן־דוד")); // Hebrew maqaf
     }
 
     @Test
@@ -63,7 +64,7 @@ public class HebrewNormalizerTest {
         assertTrue(HebrewNormalizer.isHebrewLetter('ם'));
         assertFalse(HebrewNormalizer.isHebrewLetter('a'));
         assertFalse(HebrewNormalizer.isHebrewLetter('5'));
-        assertFalse(HebrewNormalizer.isHebrewLetter('ָ')); // קמץ
+        assertFalse(HebrewNormalizer.isHebrewLetter(KAMATZ));
     }
 
     @Test

@@ -1,48 +1,46 @@
 package com.yuval.tashchetz.logic;
 
 /**
- * ממירה מילים בעברית לצורה שבה הן נכתבות בגריד של התשחץ:
- * רק אותיות רגילות — בלי סופיות, בלי ניקוד, בלי רווחים ובלי סימני פיסוק.
- * לדוגמה: "שָׁלוֹם" → "שלומ", "בית ספר" → "ביתספר", "ג'ירפה" → "גירפה".
+ * Converts Hebrew words to the form they take in the arrow-word grid:
+ * regular letters only — no final letters, no niqqud, no spaces and no punctuation.
+ * Examples: "שָׁלוֹם" → "שלומ", "בית ספר" → "ביתספר", "ג'ירפה" → "גירפה".
  *
- * מחלקת עזר: כל הפעולות סטטיות, ואין צורך ליצור ממנה עצם.
- *
- * הקוד נכתב בעזרת AI (Claude) ומוסבר בשיעור docs/learning/02-hebrew-normalizer.md.
+ * Utility class: all methods are static, so there is no need to create an instance.
  */
 public final class HebrewNormalizer {
 
-    /** האות הראשונה בטבלת יוניקוד של העברית (U+05D0). */
+    /** First letter of the Hebrew block in Unicode (U+05D0). */
     private static final char FIRST_LETTER = 'א';
 
-    /** האות האחרונה בטבלת יוניקוד של העברית (U+05EA). */
+    /** Last letter of the Hebrew block in Unicode (U+05EA). */
     private static final char LAST_LETTER = 'ת';
 
-    /** תחילת טווח הניקוד וטעמי המקרא ביוניקוד (U+0591). */
-    private static final char FIRST_MARK = '֑';
+    /** Start of the niqqud and cantillation marks range in Unicode (U+0591). */
+    private static final char FIRST_MARK = 0x0591;
 
-    /** סוף טווח הניקוד וטעמי המקרא ביוניקוד (U+05C7). */
-    private static final char LAST_MARK = 'ׇ';
+    /** End of the niqqud and cantillation marks range in Unicode (U+05C7). */
+    private static final char LAST_MARK = 0x05C7;
 
-    /** תווים שמותר שיופיעו בתשובה מה-AI, ופשוט מוחקים אותם. */
+    /** Symbols that may appear in an answer from the AI and are simply removed. */
     private static final String IGNORED_SYMBOLS = " '\"-׳״";
 
-    /** אורך מינימלי של תשובה בתשחץ. */
+    /** Minimum length of an answer in the puzzle. */
     public static final int MIN_ANSWER_LENGTH = 2;
 
-    /** בנאי פרטי: אי אפשר ליצור עצם ממחלקת עזר. */
+    /** Private constructor: a utility class cannot be instantiated. */
     private HebrewNormalizer() {
     }
 
     /**
-     * בודקת אם התו הוא אות עברית (כולל סופיות).
+     * Checks whether the character is a Hebrew letter (including final letters).
      */
     public static boolean isHebrewLetter(char c) {
         return c >= FIRST_LETTER && c <= LAST_LETTER;
     }
 
     /**
-     * מחזירה את האות הרגילה שמתאימה לאות סופית. כל תו אחר חוזר כמו שהוא.
-     * משמשת גם במסך המשחק: אם המשתמש מקליד "ם", בגריד נכתב "מ".
+     * Returns the regular letter that matches a final letter. Any other character is returned as is.
+     * Also used by the game screen: if the user types "ם", the grid shows "מ".
      */
     public static char toRegular(char c) {
         switch (c) {
@@ -62,8 +60,8 @@ public final class HebrewNormalizer {
     }
 
     /**
-     * מחזירה רק את האותיות של הטקסט, כשכל סופית הופכת לרגילה.
-     * כל תו שאינו אות עברית נמחק. עבור null מוחזרת מחרוזת ריקה.
+     * Returns only the letters of the text, with every final letter turned into a regular one.
+     * Every character that is not a Hebrew letter is removed. For null, returns an empty string.
      */
     public static String normalize(String text) {
         if (text == null) {
@@ -80,9 +78,9 @@ public final class HebrewNormalizer {
     }
 
     /**
-     * בודקת אם תשובה שהגיעה מה-AI מתאימה לתשחץ: מכילה רק אותיות עבריות,
-     * ניקוד ותווים מותרים (רווח, גרש, מקף), ויש בה לפחות MIN_ANSWER_LENGTH אותיות.
-     * תשובה עם ספרות או אותיות לועזיות נפסלת, במקום שהאותיות האלה ייעלמו בשקט.
+     * Checks whether an answer from the AI fits the puzzle: it contains only Hebrew letters,
+     * niqqud and allowed symbols (space, geresh, hyphen), and at least MIN_ANSWER_LENGTH letters.
+     * An answer with digits or Latin letters is rejected, instead of those characters silently disappearing.
      */
     public static boolean isValidAnswer(String text) {
         if (text == null) {
@@ -101,7 +99,7 @@ public final class HebrewNormalizer {
     }
 
     /**
-     * בודקת אם התו הוא ניקוד, טעם מקרא או סימן פיסוק מותר, שאותו מוחקים.
+     * Checks whether the character is niqqud, a cantillation mark or an allowed symbol, which is removed.
      */
     private static boolean isIgnorable(char c) {
         boolean isMark = c >= FIRST_MARK && c <= LAST_MARK;

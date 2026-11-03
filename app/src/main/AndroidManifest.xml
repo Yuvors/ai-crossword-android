@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Manifest מינימלי. כל Activity, Receiver והרשאה נוספים כאן
-    רק ביחד עם הקובץ שצריך אותם.
+    Minimal manifest. Each Activity, receiver and permission is added here
+    only together with the file that needs it.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 

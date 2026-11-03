@@ -29,10 +29,10 @@ android {
 dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
-    // MVVM: ViewModel ו-LiveData (שיעור 01)
+    // MVVM: ViewModel and LiveData
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.lifecycle.livedata)
 
-    // בדיקות יחידה שרצות על המחשב, בלי אמולטור (שיעור 02)
+    // Unit tests that run on the computer, without an emulator
     testImplementation(libs.junit)
 }

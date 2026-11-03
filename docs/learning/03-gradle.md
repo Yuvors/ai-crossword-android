@@ -1,6 +1,6 @@
 # שיעור 3: Gradle — איך הפרויקט נבנה
 
-> קבצי הבנייה נכתבו בעזרת AI (Claude), על בסיס התבנית של Android Studio.
+> קבצי הבנייה נכתבו בעזרת AI (Claude), על בסיס התבנית של Android Studio. זה רשום ב-`docs/ai-usage.md`.
 
 ## מה זה Gradle
 Gradle היא **מערכת בנייה**. כשלוחצים Run ב-Android Studio, Gradle:

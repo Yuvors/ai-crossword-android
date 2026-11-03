@@ -1,4 +1,4 @@
-// איפה Gradle מחפש פלאגינים (כמו הפלאגין של אנדרואיד)
+// Where Gradle looks for plugins (such as the Android plugin)
 pluginManagement {
     repositories {
         google {
@@ -13,7 +13,7 @@ pluginManagement {
     }
 }
 
-// איפה Gradle מחפש ספריות (תלויות) — אותם מאגרים לכל המודולים
+// Where Gradle looks for libraries (dependencies) — the same repositories for all modules
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
