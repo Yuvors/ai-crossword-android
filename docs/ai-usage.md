@@ -12,6 +12,8 @@
 | 2026-11-03 | `settings.gradle.kts`, `build.gradle.kts`, `gradle.properties`, `gradle/libs.versions.toml`, `app/build.gradle.kts` | קבצי הבנייה, על בסיס התבנית של Android Studio | `docs/learning/03-gradle.md` |
 | 2026-11-03 | `app/src/main/AndroidManifest.xml` | Manifest מינימלי | `docs/learning/03-gradle.md` |
 | 2026-11-03 | `app/src/main/res/` (layout, menu, values) | מעטפת XML תקינה מינימלית בקבצים שהיו ריקים | `docs/learning/03-gradle.md` |
+| 2026-11-03 | `model/Direction.java`, `model/Arrow.java`, `model/PuzzleSize.java`, `model/PuzzleSource.java`, `model/Difficulty.java` | כל ה-enums | `docs/learning/04-model.md` (חלק א') |
+| 2026-11-03 | `app/src/test/java/com/yuval/tashchetz/model/ArrowTest.java` | כל הבדיקות | `docs/learning/04-model.md` (חלק א') |
 
 קבצים שלא נכתבו בעזרת AI: `gradlew`, `gradlew.bat` ו-`gradle/wrapper/` הועתקו מפרויקט קודם (SchoolQuest), ונוצרו במקור על ידי Android Studio.
 

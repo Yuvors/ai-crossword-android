@@ -1,7 +1,13 @@
 # פרויקט תשחץ AI — אנדרואיד (Java), פרויקט גמר 5 יח"ל
 
 ## Next Steps
-1. `ArrowGridGenerator` (כולל unit tests), יחד עם שיעור ב-`docs/learning/`. לפני כן כנראה צריך את מחלקות ה-model שהוא משתמש בהן (`Cell`, `Arrow`, `Word`, `Grid` וכו'). לא להתחיל לכתוב קוד לפני אישור המשתמש. (`HebrewNormalizer` הושלם.)
+1. מחלקות ה-model, לפי תוכנית מאושרת ב-4 שלבים, כל שלב עם בדיקות וחלק בשיעור `docs/learning/04-model.md`:
+   - ~~שלב 1: enums~~ — הושלם.
+   - **שלב 2 (הבא):** `Cell` (מופשטת), `LetterCell` (`solution`, `userLetter`, `isFilled`, `isCorrect`; `setUserLetter` עובר דרך `HebrewNormalizer.toRegular`), `ClueCell` (עד 2 `Clue`, `addClue` זורקת חריגה כשמלאה), `BlockedCell`. בדיקות ל-`LetterCell` ול-`ClueCell`.
+   - שלב 3: `Word` (`answer` מנורמל, משבצת התחלה, `Direction`, `length()`, `getRowAt(i)`/`getColAt(i)`), `Clue` (`text`, `hint`, `Arrow`, הפניה ל-`Word`).
+   - שלב 4: `Grid` (`Cell[][]`, `getCell`/`setCell`, `isInside`, `getSize`), `Puzzle` (`isSolved`, `findWordAt(row, col, direction)`).
+   לפני כל שלב — לחכות לאישור המשתמש.
+   אחר כך: `ArrowGridGenerator` עם שיעור משלו.
 2. כשמוסיפים ל-Manifest רכיב (Activity, Receiver, הרשאה) או ספרייה ל-Gradle — לעשות זאת רק ביחד עם הקובץ שצריך אותם, ולהסביר.
 3. ליישב אי-התאמות קטנות במסמכים:
    - בשיעור 01 מופיע `GameViewModelFactory`, ובמבנה יש רק `ViewModelFactory` אחד.
@@ -40,6 +46,11 @@
 - כרגע רק ספריות בסיס (AppCompat, Material, Lifecycle, JUnit). Room, WorkManager ו-Firebase ייכנסו כל אחת עם השיעור שלה. הסיבה: שהמשתמש יכיר כל שורה בקובץ, וגם כי Firebase צריך `google-services.json`.
 - Manifest מינימלי (רק `<application>` עם `supportsRtl`). כל רכיב והרשאה ייכנסו יחד עם הקובץ שלהם.
 - קבצי ה-XML שהיו ריקים ב-`res/` קיבלו מעטפת תקינה מינימלית (`<resources />`, `<menu />`, `FrameLayout` ריק). הסיבה: קובץ XML ריק שובר את הבנייה.
+- **קואורדינטות בגריד: שורה 0 למעלה, עמודה 0 היא הימנית ביותר.** "שמאלה" = `col + 1`. הסיבה: האלגוריתם צועד בכיוון הקריאה בעברית בלי מינוסים, וקל להסביר בבחינה. רק `ArrowGridView` הופך בציור: `x = (size - 1 - col) * cellSize`.
+- `ArrowGridGenerator` עובד על `char[][]` משלו בזמן ה-backtracking, ובונה `Grid` עם עצמי `Cell` רק בסוף. הסיבה: קל ומהיר לשים ולבטל אות במערך, ומחלקות ה-model נשארות פשוטות ומתארות תשחץ גמור.
+- `Difficulty` הוא enum (`EASY`, `MEDIUM`, `HARD`) ולא `int`. הסיבה: אי אפשר להעביר ערך לא חוקי.
+- `GameRoom`, `UserProfile`, `ScoreEntry`, `Achievement` נדחו עד Firestore והמסכים שלהן — לא לכתוב קוד שאין לו עדיין שימוש.
+- `Arrow` שומר היסט של משבצת ההתחלה ו-`Direction`; `isBent()` מחושב (היסט ≠ צעד הכיוון) ולא נשמר כשדה.
 - בדיקות יחידה ב-JUnit 4, ברירת המחדל של אנדרואיד (`junit:junit:4.13.2`) — כדי שה-template הרגיל של Android Studio יעבוד בלי הגדרות נוספות.
 
 ## דרך עבודה
@@ -55,3 +66,4 @@
 - **2026-11-03** (מחשב מקומי): ה-repository שוכפל ל-`C:\Users\yuval\AndroidStudioProjects\ai-crossword-android`. נבדק שכל הקבצים מהסקיצה קיימים וריקים. נוספו ל-CLAUDE.md הסעיפים Next Steps, Key Decisions ו-Session Log. נכתבו `HebrewNormalizer`, `HebrewNormalizerTest` (10 בדיקות) ושיעור 02. בלי Gradle, הבדיקות הורצו ידנית עם JDK 17 המקומי (`C:\Program Files (x86)\Android\openjdk\jdk-17.0.8.101-hotspot`) ו-stub של JUnit: 10/10 עברו.
 - **2026-11-03** (המשך): הוקם Gradle (Wrapper הועתק מ-SchoolQuest), נוסף Manifest מינימלי, וקבצי ה-XML הריקים קיבלו מעטפת תקינה. `gradlew testDebugUnitTest` — 10/10 עברו; `gradlew assembleDebug` — נבנה APK. שיעור 03 על Gradle. כדי להריץ משורת הפקודה צריך `JAVA_HOME` שמצביע ל-JDK 17 (למשל `C:\Program Files (x86)\Android\openjdk\jdk-17.0.8.101-hotspot`); Android Studio מסתדר לבד.
 - **2026-11-03** (המשך): לבקשת המשתמש — כל ההערות בקוד תורגמו לאנגלית, והוסרו מהן ההערות "נכתב בעזרת AI". נוסף `docs/ai-usage.md` כתיעוד המרכזי של שימוש ב-AI. קבועי הניקוד ב-`HebrewNormalizer` נכתבו כ-`0x0591`/`0x05C7` (קודם נשמרו כתווים בלתי נראים).
+- **2026-11-03** (המשך): אושרה תוכנית ה-model (4 שלבים). שלב 1 הושלם: `Direction`, `Arrow`, `PuzzleSize`, `PuzzleSource`, `Difficulty` (חדש) + `ArrowTest` (8 בדיקות). סה"כ 18/18 בדיקות עוברות. שיעור 04, חלק א' (enums וקואורדינטות). `architecture.md` ו-`project-structure.md` עודכנו.

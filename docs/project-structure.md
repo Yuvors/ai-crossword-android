@@ -39,6 +39,7 @@ model/                           אובייקטים של המשחק. Java נקי
 ├── Puzzle.java                  תשחץ שלם: מזהה, גודל, אינדקס, נושא, קושי, מילים, גריד
 ├── PuzzleSize.java              (enum) SMALL = 10×10, LARGE = 15×15
 ├── PuzzleSource.java            (enum) POOL, LEARNING, DAILY
+├── Difficulty.java              (enum) EASY, MEDIUM, HARD
 ├── GameRoom.java                חדר רב-משתתפים: שחקנים, מצב, מנצח
 ├── UserProfile.java             פרטי משתמש, nextIndex לכל גודל, רצף, נקודות
 ├── ScoreEntry.java              שורה בטבלת המובילים
@@ -189,6 +190,8 @@ logic/
 ├── HebrewNormalizerTest.java
 ├── ArrowGridGeneratorTest.java
 └── PuzzleValidatorTest.java
+model/
+└── ArrowTest.java              (בדיקות ל-LetterCell, ClueCell, Word, Grid ו-Puzzle יתווספו עם המחלקות)
 ```
 הלוגיקה כתובה ב-Java נקי, בלי אנדרואיד, ולכן אפשר לבדוק אותה בלי אמולטור.
 
