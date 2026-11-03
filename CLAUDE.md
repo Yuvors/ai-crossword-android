@@ -1,7 +1,7 @@
 # פרויקט תשחץ AI — אנדרואיד (Java), פרויקט גמר 5 יח"ל
 
 ## Next Steps
-1. `HebrewNormalizer` ו-`ArrowGridGenerator` (כולל unit tests), יחד עם שיעור ב-`docs/learning/` שמסביר אותם. לא להתחיל לכתוב קוד לפני אישור המשתמש.
+1. `ArrowGridGenerator` (כולל unit tests), יחד עם שיעור ב-`docs/learning/`. לפני כן כנראה צריך את מחלקות ה-model שהוא משתמש בהן (`Cell`, `Arrow`, `Word`, `Grid` וכו'). לא להתחיל לכתוב קוד לפני אישור המשתמש. (`HebrewNormalizer` הושלם.)
 2. קבצי Gradle ו-`AndroidManifest.xml` — עדיין לא נוצרו, בכוונה. לא ליצור בלי לשאול את המשתמש.
 3. ליישב אי-התאמות קטנות במסמכים:
    - בשיעור 01 מופיע `GameViewModelFactory`, ובמבנה יש רק `ViewModelFactory` אחד.
@@ -33,6 +33,8 @@
 - שם החבילה: `com.yuval.tashchetz`.
 - MVVM מלא בכל המסכים: ViewModel לכל מסך, LiveData, Repository כנקודת גישה יחידה לנתונים.
 - כל קוד שנוצר בעזרת AI חייב להיות מסומן בתיעוד (דרישת המכוון).
+- `HebrewNormalizer`: הבדיקה (`isValidAnswer`) נפרדת מההמרה (`normalize`). הסיבה: `normalize` מוחקת בשקט כל תו לא מוכר, ובלי בדיקה נפרדת תשובה פגומה מה-AI ("שלום1") הייתה נכנסת לגריד. גרש, מקף ורווח מותרים ונמחקים; ספרות ואותיות לועזיות פוסלות. אורך מינימלי לתשובה: 2.
+- בדיקות יחידה ב-JUnit 4, ברירת המחדל של אנדרואיד (`junit:junit:4.13.2`) — כדי שה-template הרגיל של Android Studio יעבוד בלי הגדרות נוספות.
 
 ## דרך עבודה
 - המשתמש צריך לשלוט בכל הקוד בבחינה (25% מהציון). כשנכנס נושא חדש (כמו MVVM, Room, WorkManager), להסביר אותו ולכתוב שיעור קצר ב-`docs/learning/` עם דוגמאות מהפרויקט ושאלות שבוחן עשוי לשאול.
@@ -42,4 +44,4 @@
 - **2026-10-29** (ענן): הוראות הפרויקט וסיכום מכוון הדרישות.
 - **2026-10-30** (ענן): טיוטת ארכיטקטורה ראשונה. מעבר לתשחץ. הוחלט על Firebase Auth ועל הרצת אלגוריתם השיבוץ באפליקציה. MVVM מלא ושיעור 01. חיצים שבורים נכללים כבר בגרסה הראשונה.
 - **2026-11-02** (ענן): סקיצת מבנה הקבצים. כל הקבצים והתיקיות נוצרו ריקים.
-- **2026-11-03** (מחשב מקומי): ה-repository שוכפל ל-`C:\Users\yuval\AndroidStudioProjects\ai-crossword-android`. נבדק שכל הקבצים מהסקיצה קיימים וריקים. נוספו ל-CLAUDE.md הסעיפים Next Steps, Key Decisions ו-Session Log.
+- **2026-11-03** (מחשב מקומי): ה-repository שוכפל ל-`C:\Users\yuval\AndroidStudioProjects\ai-crossword-android`. נבדק שכל הקבצים מהסקיצה קיימים וריקים. נוספו ל-CLAUDE.md הסעיפים Next Steps, Key Decisions ו-Session Log. נכתבו `HebrewNormalizer`, `HebrewNormalizerTest` (10 בדיקות) ושיעור 02. בלי Gradle, הבדיקות הורצו ידנית עם JDK 17 המקומי (`C:\Program Files (x86)\Android\openjdk\jdk-17.0.8.101-hotspot`) ו-stub של JUnit: 10/10 עברו.
