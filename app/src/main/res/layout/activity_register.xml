@@ -1,4 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:layoutDirection="rtl">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:orientation="horizontal">
+            <TextView android:layout_width="52dp" android:layout_height="52dp" android:layout_margin="3dp" android:background="@drawable/bg_key" android:backgroundTint="@color/amber_light" android:gravity="center" android:text="ת" android:textColor="@color/ink_dark" android:textSize="26sp" android:textStyle="bold" />
+            <TextView android:layout_width="52dp" android:layout_height="52dp" android:layout_margin="3dp" android:background="@drawable/bg_key" android:backgroundTint="@color/ink_light" android:gravity="center" android:text="ש" android:textColor="@color/ink_dark" android:textSize="26sp" android:textStyle="bold" />
+            <TextView android:layout_width="52dp" android:layout_height="52dp" android:layout_margin="3dp" android:background="@drawable/bg_key" android:backgroundTint="@color/amber_light" android:gravity="center" android:text="ח" android:textColor="@color/ink_dark" android:textSize="26sp" android:textStyle="bold" />
+            <TextView android:layout_width="52dp" android:layout_height="52dp" android:layout_margin="3dp" android:background="@drawable/bg_key" android:backgroundTint="@color/ink_light" android:gravity="center" android:text="ץ" android:textColor="@color/ink_dark" android:textSize="26sp" android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="יצירת חשבון"
+            android:textAppearance="@style/TextAppearance.Tashchetz.Title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp"
+            android:text="ההתקדמות שלך תישמר בכל מכשיר"
+            android:textColor="@color/text_secondary" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:hint="שם תצוגה">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:hint="אימייל">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:hint="סיסמה">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/gap"
+            android:hint="אימות סיסמה">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_password_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="28dp"
+            android:text="הרשמה"
+            android:textSize="16sp"
+            app:cornerRadius="16dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/link_login"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="כבר יש לך חשבון? להתחברות" />
+    </LinearLayout>
+</ScrollView>

@@ -1,4 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    android:background="@color/ink"
+    android:gravity="center"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <!-- Logo: the app name written as grid tiles -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+            <TextView android:layout_width="52dp" android:layout_height="52dp" android:layout_margin="3dp" android:background="@drawable/bg_key" android:backgroundTint="@color/amber" android:gravity="center" android:text="ת" android:textColor="@color/ink_dark" android:textSize="26sp" android:textStyle="bold" />
+            <TextView android:layout_width="52dp" android:layout_height="52dp" android:layout_margin="3dp" android:background="@drawable/bg_key" android:backgroundTint="@color/white" android:gravity="center" android:text="ש" android:textColor="@color/ink_dark" android:textSize="26sp" android:textStyle="bold" />
+            <TextView android:layout_width="52dp" android:layout_height="52dp" android:layout_margin="3dp" android:background="@drawable/bg_key" android:backgroundTint="@color/amber" android:gravity="center" android:text="ח" android:textColor="@color/ink_dark" android:textSize="26sp" android:textStyle="bold" />
+            <TextView android:layout_width="52dp" android:layout_height="52dp" android:layout_margin="3dp" android:background="@drawable/bg_key" android:backgroundTint="@color/white" android:gravity="center" android:text="ץ" android:textColor="@color/ink_dark" android:textSize="26sp" android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="תשחץ חדש, בכל פעם"
+        android:textColor="@color/ink_light"
+        android:textSize="18sp" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:indeterminate="true"
+        app:indicatorColor="@color/amber"
+        xmlns:app="http://schemas.android.com/apk/res-auto" />
+</LinearLayout>

@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources />
+<resources>
+    <!-- Ink blue: the main brand color -->
+    <color name="ink">#2B3A67</color>
+    <color name="ink_dark">#1C2747</color>
+    <color name="ink_light">#E6EBF7</color>
+    <!-- Amber: highlights, like a marker on paper -->
+    <color name="amber">#F2A541</color>
+    <color name="amber_light">#FDF0DC</color>
+    <!-- Warm paper background -->
+    <color name="paper">#F7F4EE</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="outline">#E2DDD3</color>
+    <color name="text_primary">#1F2430</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="success">#3BA776</color>
+    <color name="error">#D64545</color>
+    <color name="white">#FFFFFF</color>
+</resources>

@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_hint" android:icon="@drawable/ic_hint" android:title="רמז" app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_speak" android:icon="@drawable/ic_speak" android:title="הקראת ההגדרה" app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_report" android:title="דיווח על הגדרה" app:showAsAction="never" />
+    <item android:id="@+id/action_settings" android:title="הגדרות" app:showAsAction="never" />
+</menu>

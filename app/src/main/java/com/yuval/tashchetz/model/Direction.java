@@ -20,7 +20,6 @@ public enum Direction {
 
     /** How many columns to move to get to the next letter. */
     private final int colStep;
-
     Direction(int rowStep, int colStep) {
         this.rowStep = rowStep;
         this.colStep = colStep;

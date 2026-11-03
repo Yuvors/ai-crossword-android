@@ -1,2 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources />
+<resources>
+    <style name="Theme.Tashchetz" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/ink</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/ink_light</item>
+        <item name="colorOnPrimaryContainer">@color/ink_dark</item>
+        <item name="colorSecondary">@color/amber</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+        <item name="colorSecondaryContainer">@color/amber_light</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="android:colorBackground">@color/paper</item>
+        <item name="android:windowBackground">@color/paper</item>
+        <item name="android:statusBarColor">@color/paper</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="materialCardViewStyle">@style/Widget.Tashchetz.Card</item>
+    </style>
+
+    <style name="Theme.Tashchetz.Splash" parent="Theme.Tashchetz">
+        <item name="android:windowBackground">@color/ink</item>
+        <item name="android:statusBarColor">@color/ink</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- White card with a thin outline and rounded corners -->
+    <style name="Widget.Tashchetz.Card" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="strokeColor">@color/outline</item>
+        <item name="cardCornerRadius">20dp</item>
+    </style>
+
+    <style name="TextAppearance.Tashchetz.Title" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Tashchetz.Section" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Tashchetz.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+</resources>

@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources />
+<resources>
+    <string name="app_name">תשחץ</string>
+    <string name="tab_home">בית</string>
+    <string name="tab_learn">לימוד</string>
+    <string name="tab_daily">יומי</string>
+    <string name="tab_multiplayer">חברים</string>
+    <string name="tab_profile">פרופיל</string>
+</resources>
